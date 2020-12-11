@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="mysql" class="com.sw.entity.DefaultConnectImpl">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/performanceTest"/>
+        <property name="username" value="root"/>
+        <property name="password" value="joanie123"/>
+        <!--是否执行指定sql，不配置则不执行-->
+        <property name="executeSql" value="false"/>
+        <property name="sql" value="SELECT version() FROM dual;"/>
+        <!-- 是否批量创建插入表，不配置则不执行-->
+        <property name="createTable" value="false"/>
+        <property name="ddl" value="create table if not exists `${table}`(id int auto_increment key,name varchar(32),nation varchar(32),birthDay date,sex varchar(32), company varchar(32), school varchar(32), phone varchar(32), idcard varchar(32), email varchar(32),ip varchar(32), mac varchar(32), province varchar(32), city varchar(32),longitude varchar(32),latitude varchar(32),carNO varchar(32),bankid varchar(32),officer varchar(32),imei varchar(32),imsi varchar(32),passowrd varchar(32),addr varchar(32),jobs varchar(32),os varchar(32),industry varchar(32),driveLicense varchar(32),roam_type varchar(32),toll_type varchar(32),SVCTYPE_ID varchar(32),CALL_DURATION varchar(32),BASECALL_FEE varchar(32),user_no varchar(32),esn varchar(32),akey varchar(32),apn varchar(32),major varchar(32),education varchar(32),type varchar(32),fight int)"/>
+        <property name="addSql" value="INSERT INTO `${table}` (`name`, `nation`, `birthDay`, `sex`, `company`, `school`, `phone`, `idcard`, `email`, `ip`, `mac`, `province`, `city`, `longitude`, `latitude`, `carNO`, `bankid`, `officer`, `imei`, `imsi`, `passowrd`, `addr`, `jobs`, `os`, `industry`, `driveLicense`, `roam_type`, `toll_type`, `SVCTYPE_ID`, `CALL_DURATION`, `BASECALL_FEE`, `user_no`, `esn`, `akey`, `apn`, `major`, `education`, `type`, `fight`) VALUES ('孙尚香', ' 壮族', '2020-12-09', ' 女', ' 吴国食品有限公司', ' 厦门大学', '13699489568', '511322199512243356', '845128@qq.com', '192.168.10.113', 'a2:cb:44:e8:cc:90', '四川省', '成都市', '29.062506', '118.183266', '京A88888', '6227894568254567896', '政字第85694563号', '35698499684591', '460208569456128', 'smile.11', '桃园村', '屠夫', 'iphone', '军工', '818564879542', '1', '2', '8564', '599', '20', '85642', '80a587s6', '85a659s12s84dg6w', 'cmnet', '武将', '初阶', '战士', 99)"/>
+        <!-- 批量创建表数量-->
+        <property name="tableCount" value="10"/>
+    </bean>
+
+
+</beans>
